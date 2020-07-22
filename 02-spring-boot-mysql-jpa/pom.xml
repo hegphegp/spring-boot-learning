@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.condingfly</groupId>
-    <artifactId>03-spring-boot-mysql-mybatis</artifactId>
+    <artifactId>02-spring-boot-mysql-jpa</artifactId>
     <version>1.0.0</version>
-    <name>03-spring-boot-mysql-mybatis</name>
+    <name>02-spring-boot-mysql-jpa</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

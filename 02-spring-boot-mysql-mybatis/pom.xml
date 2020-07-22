@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.condingfly</groupId>
-    <artifactId>02-spring-boot-h2-jpa</artifactId>
+    <artifactId>02-spring-boot-mysql-mybatis</artifactId>
     <version>1.0.0</version>
-    <name>02-spring-boot-h2-jpa</name>
+    <name>02-spring-boot-mysql-mybatis</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -25,20 +25,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.199</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.2.5</version>
         </dependency>
 
         <dependency>
