@@ -1,0 +1,4 @@
+spring.redis.redisson.config: "classpath:redisson.yml"
+
+# docker命令
+# docker run -itd --restart always --name redis --hostname redis -p 6379:6379 redis:5.0.5-alpine redis-server --port 6379 --protected-mode no --pidfile redis.pid --appendonly yes --bind 0.0.0.0 --requirepass admin --bind 0.0.0.0
