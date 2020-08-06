@@ -5,7 +5,8 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: sa
-    url: jdbc:h2:mem:test
+#    url: jdbc:h2:mem:test;DATABASE_TO_UPPER=FALSE;MODE=MYSQL;
+    url: jdbc:h2:mem:test;DATABASE_TO_LOWER=TRUE;MODE=MYSQL;
     platform: h2
     type: com.zaxxer.hikari.HikariDataSource
     hikari:

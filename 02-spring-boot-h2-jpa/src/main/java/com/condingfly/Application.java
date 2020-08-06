@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.util.ObjectUtils;
 
 import java.sql.Timestamp;
@@ -20,13 +21,14 @@ public class Application implements CommandLineRunner {
     private UserRepository userRepository;
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
+        namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
 //        UserEntity user = new UserEntity();
 //        user.setUsername("username");
 //        user.setNickname("nickname");
@@ -36,12 +38,15 @@ public class Application implements CommandLineRunner {
 //        user.setCreateAt(now);
 //        user.setUpdateAt(now);
 //        userRepository.save(user);
-        String sql = SQLUtils.insertSql("sys_user", Arrays.asList("id"));
-//        String sql = "INSERT INTO sys_user (id, username, nickname, phone, del, create_at, update_at) VALUES (?,?,?,?,?,?,?);";
-        jdbcTemplate.update(sql, "i");
+//        String sql = SQLUtils.insertSql("sys_user", Arrays.asList("id"));
+////        String sql = "INSERT INTO sys_user (id, username, nickname, phone, del, create_at, update_at) VALUES (?,?,?,?,?,?,?);";
+//        jdbcTemplate.update(sql, "i");
+//        batchInsertByParams();
+//        insertByOne();
         batchInsertByParams();
-        insertByOne();
-
+        String sql = "SELECT * FROM sys_user WHERE id IN (?) ";
+        List<Map<String,Object>> list = jdbcTemplate.queryForList(sql, "1");
+        System.out.println("000000000000000");
     }
 
     private void batchInsertByParams() {

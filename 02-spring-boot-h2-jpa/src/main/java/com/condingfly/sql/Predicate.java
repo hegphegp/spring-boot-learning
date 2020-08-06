@@ -9,6 +9,11 @@ public class Predicate {
     private Condition condition;
     public Predicate() { }
 
+    public Predicate(String field, Condition condition) {
+        this.field = field;
+        this.condition = condition;
+    }
+
     public String getField() {
         return field;
     }
